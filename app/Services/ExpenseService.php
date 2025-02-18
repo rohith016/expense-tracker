@@ -7,9 +7,16 @@ use App\Models\Expense;
 
 class ExpenseService
 {
+    /**
+     * getExpenses function
+     *
+     * @param [type] $requestKey
+     * @param [type] $categoryId
+     * @param [type] $dateRange
+     * @return void
+     */
     public function getExpenses($requestKey = null, $categoryId = null, $dateRange = null)
     {
-
         $expenses = Expense::when($requestKey, function($query) use($requestKey){
             $query->whereAny(['amount', 'description'], 'like',  "%$requestKey%");
         })
