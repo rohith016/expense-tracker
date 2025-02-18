@@ -7,9 +7,10 @@
 
 - clone the repository
 - run `composer install`
-- run `npm install && npm run dev`
+- cp .env.example .env
 - connect database via .env
 - run `php artisan key:generate`
+- run `npm install && npm run dev`
 - run `php artisan migrate` to load the schema
 - run `php artisan db:seed` to load dummy data for users and categories (if needed)
 - run `php artisan serve`
