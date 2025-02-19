@@ -13,11 +13,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->create([
+        $userData = [
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => bcrypt('password'),
-        ]);
+        ];
+
+        $userExist = User::where('email',$userData['email'])->exists();
+        if (!$userExist) {
+            User::factory()->create($userData);
+        }
+
 
         $this->call([
             CategorySeeder::class,
